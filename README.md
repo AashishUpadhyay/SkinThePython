@@ -1,6 +1,6 @@
 # Skin The Python
 
-A repository containing solutions for complex computerscience problems using Python
+A repository containing solutions for complex computer science problems using Python
 
 Problem Name  | Link
 ------------- | -------------
