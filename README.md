@@ -4,4 +4,5 @@ A repository containing solutions for complex computer science problems using Py
 
 Problem Name  | Link
 ------------- | -------------
-Markov Chain (Count no of times a state is visited)   | [markovchain.py](https://raw.githubusercontent.com/AashishUpadhyay/SkinThePython/main/markovchain.py)
+Markov Chain (Count no of times a state is visited)   | [markovchain.py](markovchain.py)
+Rabin Karp String-searching Algorithm   | [rabinkarp.py](rabinkarp.py)
