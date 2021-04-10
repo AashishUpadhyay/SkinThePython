@@ -1,4 +1,4 @@
-from djikstras import Solution
+from src.djikstras import Solution
 
 def test1():
     sol = Solution()

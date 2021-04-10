@@ -1,4 +1,4 @@
-from astarsearch import *
+from src.astarsearch import *
 import copy
 
 
