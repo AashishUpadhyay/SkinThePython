@@ -8,6 +8,8 @@ A repository containing solutions for complex computer science problems using Py
 | Rabin Karp String-searching Algorithm                   | [rabinkarp.py](src/rabinkarp.py)                       |
 | Hierholzer's Algorithm Debrujin Squence                 | [hierholzersalgorithm.py](src/hierholzersalgorithm.py) |
 | A\* Search-heuristic based approach to solve 8X8 puzzle | [astarsearch.py](src/astarsearch.py)                   |
+| Ghost game | [ghost.py](src/ghost.py)                   |
+| Count4 game | [count4.py](src/count4.py)                   |
 
 ### Test
 
