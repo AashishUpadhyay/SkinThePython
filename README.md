@@ -10,7 +10,7 @@ A repository containing solutions for complex computer science problems using Py
 | A\* Search-heuristic based approach to solve 8X8 puzzle | [astarsearch.py](src/astarsearch.py)                   |
 | Ghost game | [ghost.py](src/ghost.py)                   |
 | Count4 game | [count4.py](src/count4.py)                   |
-| Cryptarithmetic game | [count4.py](src/cryptarithmetic.py)                   |
+| Cryptarithmetic game | [cryptarithmetic.py](src/cryptarithmetic.py)                   |
 
 ### Test
 
