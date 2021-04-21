@@ -12,6 +12,7 @@ A repository containing solutions for complex computer science problems using Py
 | Count4 Game | [count4.py](src/count4.py)                   |
 | Cryptarithmetic Game | [cryptarithmetic.py](src/cryptarithmetic.py)                   |
 | Cheapest Itinerary | [cheapestitinerary.py](src/cheapestitinerary.py)                   |
+| Alien Dictionary | [aliendictionary.py](src/aliendictionary.py)                   |
 
 
 ### Test
