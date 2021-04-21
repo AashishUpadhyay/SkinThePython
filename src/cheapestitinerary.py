@@ -1,3 +1,4 @@
+import heapq
 class CheapestItinerary:
     def __init__(self, routes):
         self._graph = self._buildGraph(routes)
@@ -12,20 +13,20 @@ class CheapestItinerary:
         return graph
 
     def findCheapestPrice(self, src, dest, k):
-        q = [[src, 0, 0]]
+        q = []
+        heapq.heapify(q)
+        heapq.heappush(q, [0, src, 0])
 
         while q:
-            q.sort(key=lambda x:x[1])
+            dqed = heapq.heappop(q)
 
-            dqed = q.pop(0)
+            if dqed[1] == dest:
+                return dqed[0]
 
-            if dqed[0] == dest:
-                return dqed[1]
-
-            nbours = self._graph[dqed[0]]
+            nbours = self._graph[dqed[1]]
 
             for n in nbours:
                 if (dqed[2] + 1) <= k:
-                    q.append([n[0], dqed[1] + n[1], dqed[2] + 1])
+                    heapq.heappush(q, [dqed[0] + n[1], n[0], dqed[2] + 1])
 
         return -1            
