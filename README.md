@@ -13,6 +13,7 @@ A repository containing solutions for complex computer science problems using Py
 | Cryptarithmetic Game | [cryptarithmetic.py](src/cryptarithmetic.py)                   |
 | Cheapest Itinerary | [cheapestitinerary.py](src/cheapestitinerary.py)                   |
 | Alien Dictionary | [aliendictionary.py](src/aliendictionary.py)                   |
+| Prime Generator | [primegenerator.py](src/primegenerator.py)                   |
 
 
 ### Test
