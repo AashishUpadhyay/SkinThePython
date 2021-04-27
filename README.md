@@ -14,6 +14,7 @@ A repository containing solutions for complex computer science problems using Py
 | Cheapest Itinerary | [cheapestitinerary.py](src/cheapestitinerary.py)                   |
 | Alien Dictionary | [aliendictionary.py](src/aliendictionary.py)                   |
 | Prime Generator | [primegenerator.py](src/primegenerator.py)                   |
+| American Crossword Puzzle | [americancrosswordpuzzle.py](src/americancrosswordpuzzle.py)                   |
 
 
 ### Test
