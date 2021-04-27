@@ -1,8 +1,9 @@
 from src.trie import Trie
 
+
 class Ghost:
     def findWinningLetters(self, words):
-        result =[]
+        result = []
         d = Trie(words)
 
         ks = d.trie.keys()
@@ -10,17 +11,17 @@ class Ghost:
             if self.isWinning(k, d):
                 result.append(k)
 
-        return result        
+        return result
 
     def isWinning(self, prefix, trie):
         d = trie.find(prefix)
 
-        if '#' in d:
+        if "#" in d:
             return False
         else:
             ks = d.keys()
             for k in ks:
-                if self.isWinning(prefix+k, trie) == False:
+                if self.isWinning(prefix + k, trie) == False:
                     return True
 
-            return False        
+            return False

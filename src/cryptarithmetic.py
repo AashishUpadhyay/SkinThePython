@@ -1,6 +1,7 @@
 import copy
 from collections import OrderedDict
 
+
 class Cryptarithmetic:
     def __init__(self, problem):
         self.words = problem
@@ -12,20 +13,20 @@ class Cryptarithmetic:
             wordArr = []
             for c in w:
                 wordArr.append(c)
-            wordsArr.append(wordArr)  
+            wordsArr.append(wordArr)
 
         self.normalizeWords(wordsArr)
-        
+
         letters = OrderedDict()
         maxLen = len(self.words[2])
 
-        for i in range(maxLen-1, -1, -1):
+        for i in range(maxLen - 1, -1, -1):
             for w in wordsArr:
                 if w[i] not in letters:
                     letters[w[i]] = None
 
-        unassigned = [key for key in letters.keys() if key != '#']
-        letters['#'] = 0
+        unassigned = [key for key in letters.keys() if key != "#"]
+        letters["#"] = 0
         self.solveInternal(letters, unassigned, wordsArr, set())
         return self.result
 
@@ -39,24 +40,24 @@ class Cryptarithmetic:
         for i in range(10):
             if i in seen:
                 continue
-            
+
             letters[c] = i
-            seen.add(i)  
+            seen.add(i)
 
             if self.isValid(wordsArr, letters):
                 self.solveInternal(letters, unassigned[1:], wordsArr, seen)
 
-            seen.remove(i)    
+            seen.remove(i)
             letters[c] = None
-        
-        return None         
+
+        return None
 
     def isValid(self, wordsArr, letters):
-        a,b,c = wordsArr
+        a, b, c = wordsArr
         n = len(wordsArr[0])
         carry = 0
-        for i in range(n-1,-1,-1):
-            if any(letters[w[i]] == None for w in wordsArr if w[i] != '#'):
+        for i in range(n - 1, -1, -1):
+            if any(letters[w[i]] == None for w in wordsArr if w[i] != "#"):
                 return True
             elif (letters[a[i]] + letters[b[i]] + carry) == letters[c[i]]:
                 carry = 0
@@ -65,13 +66,13 @@ class Cryptarithmetic:
             else:
                 return False
 
-        return True                
+        return True
 
     def normalizeWords(self, wordsArr):
-        maxLen = len(wordsArr[2])    
+        maxLen = len(wordsArr[2])
 
         for w in wordsArr:
             ct = maxLen - len(w)
             while ct > 0:
-                w.insert(0,'#')
-                ct = ct-1   
+                w.insert(0, "#")
+                ct = ct - 1

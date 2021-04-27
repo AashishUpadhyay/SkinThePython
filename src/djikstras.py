@@ -12,8 +12,7 @@ class Solution(object):
             if dqedItem[0] not in ntimesMap:
                 ntimesMap[dqedItem[0]] = dqedItem[1]
             else:
-                ntimesMap[dqedItem[0]] = min(
-                    ntimesMap[dqedItem[0]], dqedItem[1])
+                ntimesMap[dqedItem[0]] = min(ntimesMap[dqedItem[0]], dqedItem[1])
 
             if dqedItem[0] in graph:
                 nbours = graph[dqedItem[0]]
@@ -21,7 +20,7 @@ class Solution(object):
                 sortednbours = sorted(nbours, key=lambda x: x[1])
 
                 for nb in sortednbours:
-                    edge = str(dqedItem[0]) + '-' + str(nb[0])
+                    edge = str(dqedItem[0]) + "-" + str(nb[0])
                     cost = nb[1] + dqedItem[1]
                     if edge not in visited or visited[edge] > cost:
                         q.append([nb[0], cost])
