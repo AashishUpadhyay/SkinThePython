@@ -1,5 +1,6 @@
 from src.primegenerator import PrimeGenerator
 
+
 def testGenerate1():
     pg = PrimeGenerator()
     primes = pg.Generate(11)
@@ -9,6 +10,7 @@ def testGenerate1():
     assert 7 in primes
     assert 11 in primes
     assert len(primes) == 5
+
 
 def testGenerate2():
     pg = PrimeGenerator()
@@ -20,6 +22,7 @@ def testGenerate2():
     assert 11 in primes
     assert 13 in primes
     assert len(primes) == 6
+
 
 def testPrimes():
     pg = PrimeGenerator()

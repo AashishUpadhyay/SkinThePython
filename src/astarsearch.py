@@ -52,25 +52,29 @@ class Solution:
 
             seen.add(arrid)
 
-            if self.move(i+1, j):
-                narr = self.switch(arr, i+1, j, i, j)
-                heapq.heappush(heap, (self.distance(narr),
-                               [narr, [i+1, j], move+1]))
+            if self.move(i + 1, j):
+                narr = self.switch(arr, i + 1, j, i, j)
+                heapq.heappush(
+                    heap, (self.distance(narr), [narr, [i + 1, j], move + 1])
+                )
 
-            if self.move(i-1, j):
-                narr = self.switch(arr, i-1, j, i, j)
-                heapq.heappush(heap, (self.distance(narr),
-                               [narr, [i-1, j], move+1]))
+            if self.move(i - 1, j):
+                narr = self.switch(arr, i - 1, j, i, j)
+                heapq.heappush(
+                    heap, (self.distance(narr), [narr, [i - 1, j], move + 1])
+                )
 
-            if self.move(i, j+1):
-                narr = self.switch(arr, i, j+1, i, j)
-                heapq.heappush(heap, (self.distance(narr),
-                               [narr, [i, j+1], move+1]))
+            if self.move(i, j + 1):
+                narr = self.switch(arr, i, j + 1, i, j)
+                heapq.heappush(
+                    heap, (self.distance(narr), [narr, [i, j + 1], move + 1])
+                )
 
-            if self.move(i, j-1):
-                narr = self.switch(arr, i, j-1, i, j)
-                heapq.heappush(heap, (self.distance(narr),
-                               [narr, [i, j-1], move+1]))
+            if self.move(i, j - 1):
+                narr = self.switch(arr, i, j - 1, i, j)
+                heapq.heappush(
+                    heap, (self.distance(narr), [narr, [i, j - 1], move + 1])
+                )
 
         return None
 
@@ -96,34 +100,34 @@ class Solution:
 
             seen.add(arrid)
 
-            if self.move(i+1, j):
-                narr = self.switch(arr, i+1, j, i, j)
-                q.append([narr, [i+1, j], move+1])
+            if self.move(i + 1, j):
+                narr = self.switch(arr, i + 1, j, i, j)
+                q.append([narr, [i + 1, j], move + 1])
 
-            if self.move(i-1, j):
-                narr = self.switch(arr, i-1, j, i, j)
-                q.append([narr, [i-1, j], move+1])
+            if self.move(i - 1, j):
+                narr = self.switch(arr, i - 1, j, i, j)
+                q.append([narr, [i - 1, j], move + 1])
 
-            if self.move(i, j+1):
-                narr = self.switch(arr, i, j+1, i, j)
-                q.append([narr, [i, j+1], move+1])
+            if self.move(i, j + 1):
+                narr = self.switch(arr, i, j + 1, i, j)
+                q.append([narr, [i, j + 1], move + 1])
 
-            if self.move(i, j-1):
-                narr = self.switch(arr, i, j-1, i, j)
-                q.append([narr, [i, j-1], move+1])
+            if self.move(i, j - 1):
+                narr = self.switch(arr, i, j - 1, i, j)
+                q.append([narr, [i, j - 1], move + 1])
 
         return None
 
     def move(self, i, j):
 
-        if i < 0 or j < 0 or i > self._row-1 or j > self._col-1:
+        if i < 0 or j < 0 or i > self._row - 1 or j > self._col - 1:
             return False
 
         return True
 
     def switch(self, arr, ni, nj, oi, oj):
         newarr = copy.deepcopy(arr)
-        newarr[oi][oj], newarr[ni][nj] = newarr[ni][nj],  newarr[oi][oj]
+        newarr[oi][oj], newarr[ni][nj] = newarr[ni][nj], newarr[oi][oj]
         return newarr
 
     def distance(self, arr):
@@ -137,7 +141,7 @@ class Solution:
         return result
 
     def id(self, arr):
-        sb = ''
+        sb = ""
         lst = []
         for i in range(len(arr)):
             for j in range(len(arr)):

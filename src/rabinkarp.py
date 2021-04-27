@@ -1,4 +1,3 @@
-
 def build_hash(s):
     s_hash = 0
     for i, c in enumerate(s):
@@ -8,7 +7,7 @@ def build_hash(s):
 
 
 def calculate_hash(hs, nc, oc, l):
-    return 26*(hs - (pow(26, l - 1) * (ord(oc) - 96))) + (ord(nc) - 96)
+    return 26 * (hs - (pow(26, l - 1) * (ord(oc) - 96))) + (ord(nc) - 96)
 
 
 def find_matches_rabinkarp(str, substr):
@@ -28,12 +27,11 @@ def find_matches_rabinkarp(str, substr):
     ei = substr_len
 
     while ei < len(str):
-        n_hash = calculate_hash(
-            n_hash, str[ei], str[ei - substr_len], substr_len)
+        n_hash = calculate_hash(n_hash, str[ei], str[ei - substr_len], substr_len)
 
         if n_hash == substr_hash:
-            if str[ei-substr_len+1:ei+1] == substr:
-                res.append(ei-substr_len+1)
+            if str[ei - substr_len + 1 : ei + 1] == substr:
+                res.append(ei - substr_len + 1)
         ei += 1
 
     return res
