@@ -13,7 +13,7 @@ class Trie:
                 d[c] = {}
             d = d[c]
 
-        d['#'] = None
+        d["#"] = None
 
     def find(self, word):
         d = self.trie
@@ -24,4 +24,4 @@ class Trie:
             else:
                 d = d[c]
 
-        return d                                
+        return d

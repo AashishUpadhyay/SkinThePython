@@ -1,7 +1,7 @@
 class Permutations:
     def __init__(self, arr):
         self._arr = arr
-        self._perms =[]
+        self._perms = []
 
     def generatePermutations(self):
         self._generatePermutationsInternal(self._arr, "", set())
@@ -18,7 +18,4 @@ class Permutations:
 
             seen.add(i)
             self._generatePermutationsInternal(arr, perm + arr[i], seen)
-            seen.remove(i)    
-
-
-
+            seen.remove(i)

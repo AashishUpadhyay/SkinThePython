@@ -1,4 +1,6 @@
 import heapq
+
+
 class CheapestItinerary:
     def __init__(self, routes):
         self._graph = self._buildGraph(routes)
@@ -29,4 +31,4 @@ class CheapestItinerary:
                 if (dqed[2] + 1) <= k:
                     heapq.heappush(q, [dqed[0] + n[1], n[0], dqed[2] + 1])
 
-        return -1            
+        return -1
