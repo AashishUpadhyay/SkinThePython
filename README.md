@@ -15,6 +15,7 @@ A repository containing solutions for complex computer science problems using Py
 | Alien Dictionary | [aliendictionary.py](src/aliendictionary.py)                   |
 | Prime Generator | [primegenerator.py](src/primegenerator.py)                   |
 | American Crossword Puzzle | [americancrosswordpuzzle.py](src/americancrosswordpuzzle.py)                   |
+| Time Key Dictionary | [timekeydictionary.py](src/timekeydictionary.py)                   |
 
 
 ### Test
