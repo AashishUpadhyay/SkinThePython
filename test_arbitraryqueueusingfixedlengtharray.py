@@ -1,5 +1,6 @@
 from src.arbitraryqueueusingfixedlengtharray import ArbitraryQueueUsingFixedLengthArray
 
+
 def test_1():
     aqufla = ArbitraryQueueUsingFixedLengthArray(5)
 
@@ -32,6 +33,7 @@ def test_1():
     assert aqufla.dequeue() == 5
     assert aqufla.qsize() == 0
 
+
 def test_2():
     aqufla = ArbitraryQueueUsingFixedLengthArray(5)
     assert aqufla.enqueue(1) == 1
@@ -46,6 +48,3 @@ def test_2():
     assert aqufla.dequeue() == 4
     assert aqufla.dequeue() == 5
     assert aqufla.qsize() == 0
-
-
-

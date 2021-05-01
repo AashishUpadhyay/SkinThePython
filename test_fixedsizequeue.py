@@ -1,5 +1,6 @@
 from src.fixedsizequeue import FixedSizeQueue
 
+
 def test_1():
     fsq = FixedSizeQueue(5)
 
@@ -32,6 +33,7 @@ def test_1():
     assert fsq.dequeue() == 5
     assert fsq.qsize() == 0
 
+
 def test_2():
     fsq = FixedSizeQueue(5)
     assert fsq.enqueue(1) == 1
@@ -48,6 +50,3 @@ def test_2():
     assert fsq.dequeue() == 5
     assert fsq.dequeue() == -1
     assert fsq.qsize() == 0
-
-
-
