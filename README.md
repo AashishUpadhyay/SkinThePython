@@ -16,6 +16,8 @@ A repository containing solutions for complex computer science problems using Py
 | Prime Generator | [primegenerator.py](src/primegenerator.py)                   |
 | American Crossword Puzzle | [americancrosswordpuzzle.py](src/americancrosswordpuzzle.py)                   |
 | Time Key Dictionary | [timekeydictionary.py](src/timekeydictionary.py)                   |
+| Fixed Size Queue | [fixedsizequeue.py](src/fixedsizequeue.py)                   |
+
 
 
 ### Test
