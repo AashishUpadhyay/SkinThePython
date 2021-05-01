@@ -23,5 +23,5 @@ A repository containing solutions for complex computer science problems using Py
 ### Test
 
 ```
-pytest -s test*
+pytest tests/*.py
 ```
