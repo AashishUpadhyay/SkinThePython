@@ -18,6 +18,7 @@ A repository containing solutions for complex computer science problems using Py
 | Time Key Dictionary | [timekeydictionary.py](src/timekeydictionary.py)                   |
 | Fixed Size Queue | [fixedsizequeue.py](src/fixedsizequeue.py)                   |
 | Arbitrary Queue Using Fixed Length Arrays | [arbitraryqueueusingfixedlengtharray.py](src/arbitraryqueueusingfixedlengtharray.py)                   |
+| Quack | [quack.py](src/quack.py)                   |
 
 
 
