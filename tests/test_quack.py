@@ -1,5 +1,6 @@
 from src.quack import Quack
 
+
 def test_1():
     quack = Quack()
 
