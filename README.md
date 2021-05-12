@@ -19,6 +19,7 @@ A repository containing solutions for complex computer science problems using Py
 | Fixed Size Queue | [fixedsizequeue.py](src/fixedsizequeue.py)                   |
 | Arbitrary Queue Using Fixed Length Arrays | [arbitraryqueueusingfixedlengtharray.py](src/arbitraryqueueusingfixedlengtharray.py)                   |
 | Quack | [quack.py](src/quack.py)                   |
+| LRU Cache | [lrucache.py](src/lrucache.py)                   |
 
 
 
