@@ -4,6 +4,7 @@ class LinkedListNode:
         self.prev = None
         self.next = None
 
+
 class LinkedList:
     def __init__(self) -> None:
         self._head = None
@@ -16,17 +17,17 @@ class LinkedList:
             self._tail = node
         else:
             node.next = self._head
-            node.next.prev = node    
+            node.next.prev = node
             self._head = node
 
-        self.size +=1        
+        self.size += 1
         return
 
     def remove_last(self):
         if self.size == 0:
             return None
 
-        return_val = self._tail   
+        return_val = self._tail
         self.remove(self._tail)
         return return_val
 
@@ -35,15 +36,12 @@ class LinkedList:
             self._head = node.next
 
         if node == self._tail:
-            self._tail = node.prev    
+            self._tail = node.prev
 
         if node.prev:
-            node.prev.next = node.next    
+            node.prev.next = node.next
 
         if node.next:
             node.next.prev = node.prev
 
-        self.size-=1    
-
-
-  
+        self.size -= 1
