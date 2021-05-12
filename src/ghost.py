@@ -1,4 +1,4 @@
-from src.trie import Trie
+from src.datastructures.trie import Trie
 
 
 class Ghost:
