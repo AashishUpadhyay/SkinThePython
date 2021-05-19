@@ -21,6 +21,8 @@ A repository containing solutions for complex computer science problems using Py
 | Quack | [quack.py](src/quack.py)                   |
 | LRU Cache | [lrucache.py](src/lrucache.py)                   |
 | [Reservoir Sampling](src/reservoirsampling.md) | [reservoirsampling.py](src/reservoirsampling.py)                   |
+| Fisher Yates | [fisheryates.py](src/fisheryates.py)                   |
+
 
 
 
