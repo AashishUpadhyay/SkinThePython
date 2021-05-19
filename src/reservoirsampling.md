@@ -30,7 +30,7 @@ lets create a reservoir array r_arr of first k elements `[11,2,13]`
 * **For `i = 6`:**
 Since we have reached the end of the array there is no replacement to occur so 0 probability
 
-### Total probability for an element index at index i is P(3) = P(1) * P(2)
+### Total probability for an element index having index i>=k is P(3) = P(1) * P(2)
 
 * For `i = 3`:
 Total probability:
