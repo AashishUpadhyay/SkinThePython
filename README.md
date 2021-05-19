@@ -20,7 +20,7 @@ A repository containing solutions for complex computer science problems using Py
 | Arbitrary Queue Using Fixed Length Arrays | [arbitraryqueueusingfixedlengtharray.py](src/arbitraryqueueusingfixedlengtharray.py)                   |
 | Quack | [quack.py](src/quack.py)                   |
 | LRU Cache | [lrucache.py](src/lrucache.py)                   |
-| Reservoir Sampling [proof](src/reservoirsampling.md) | [reservoirsampling.py](src/reservoirsampling.py)                   |
+| [Reservoir Sampling](src/reservoirsampling.md) | [reservoirsampling.py](src/reservoirsampling.py)                   |
 
 
 
