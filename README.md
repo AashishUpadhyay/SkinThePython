@@ -22,6 +22,7 @@ A repository containing solutions for complex computer science problems using Py
 | LRU Cache | [lrucache.py](src/lrucache.py)                   |
 | [Reservoir Sampling](src/reservoirsampling.md) | [reservoirsampling.py](src/reservoirsampling.py)                   |
 | Fisher Yates | [fisheryates.py](src/fisheryates.py)                   |
+| Kruskals Algorithm using Disjoint Set | [kruskalsalgorithm.py](src/kruskalsalgorithm.py)                   |
 
 
 
