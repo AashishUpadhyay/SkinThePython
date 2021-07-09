@@ -23,7 +23,30 @@ class DecodeString:
             result += rv
                 
         self.dp[s] = result        
-        return self.dp[s]      
+        return self.dp[s]   
+
+    def bottom_up(self, s):
+
+        dp = [0 for i in range(len(s)+1)]
+        dp[len(dp)-1] = 1
+
+        for i in range(len(s)-1, -1, -1):
+            ss_1 = s[i]
+            res = 0
+
+            if not ss_1[0] == '0':
+                if int(ss_1) > 0 and int(ss_1) < 27:
+                    res += dp[i+1]
+
+
+                if i < len(s)-1:
+                    ss_2 = s[i:i+2]
+                    if int(ss_2) > 0 and int(ss_2) < 27:
+                        res += dp[i+2]
+
+            dp[i] = res
+
+        return dp[0]        
 
 
 
