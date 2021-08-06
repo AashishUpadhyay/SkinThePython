@@ -37,8 +37,7 @@ class TravelingSalesmanProblem:
 
         nbours = graph[node]
         nodes_visited = int(nodes_visited, 2) | (1 << node)
-        nodes_remaining = nodes_visited ^ (pow(2, len(self.nodes)) - 1)
-        key_str = f'{nodes_visited:0{len(self.nodes)}b}-{nodes_remaining:0{len(self.nodes)}b}'
+        key_str = f'{nodes_visited:0{len(self.nodes)}b}'
 
         if node not in self.dp:
             self.dp[node] = {}
@@ -55,7 +54,7 @@ class TravelingSalesmanProblem:
 
             path_visited.add(path)
             rec_result = self.dfs(
-                nb, graph, path_visited, f'{nodes_visited:0{len(self.nodes)}b}')
+                nb, graph, path_visited, key_str)
             path_visited.remove(path)
 
             ret_val = min(ret_val, (rec_result+1))
