@@ -23,9 +23,10 @@ class TravelingSalesmanProblem:
 
         for k in self.nodes:
             path_visited = set()
-            nodes_visited = f'{0:012b}'
-            result = min(
-                self.dfs(k, adj_list, path_visited, nodes_visited), result)
+            nodes_visited = f'{0:0{len(self.nodes)}b}'
+            received_result = self.dfs(
+                k, adj_list, path_visited, nodes_visited)
+            result = min(received_result, result)
 
         return result - 1
 
@@ -35,10 +36,9 @@ class TravelingSalesmanProblem:
             return 0
 
         nbours = graph[node]
-        nodes_visited_as_int = int(nodes_visited, 2)
-
-        new_nodes_visited = nodes_visited_as_int | (1 << node)
-        key_str = f'{new_nodes_visited:012b}'
+        nodes_visited = int(nodes_visited, 2) | (1 << node)
+        nodes_remaining = nodes_visited ^ (pow(2, len(self.nodes)) - 1)
+        key_str = f'{nodes_visited:0{len(self.nodes)}b}-{nodes_remaining:0{len(self.nodes)}b}'
 
         if node not in self.dp:
             self.dp[node] = {}
@@ -55,10 +55,11 @@ class TravelingSalesmanProblem:
 
             path_visited.add(path)
             rec_result = self.dfs(
-                nb, graph, path_visited, key_str)
+                nb, graph, path_visited, f'{nodes_visited:0{len(self.nodes)}b}')
             path_visited.remove(path)
 
             ret_val = min(ret_val, (rec_result+1))
 
-        self.dp[node][key_str] = ret_val
+        if ret_val != self.max_len:
+            self.dp[node][key_str] = ret_val
         return ret_val
