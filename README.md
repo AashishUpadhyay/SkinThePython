@@ -25,7 +25,7 @@ A repository containing solutions for complex computer science problems using Py
 | Kruskals Algorithm using Disjoint Set                   | [kruskalsalgorithm.py](src/kruskalsalgorithm.py)                                     |
 | Traveling Salesman Problem                              | [tsp.py](src/tsp.py)                                                                 |
 | Bellman Ford                                            | [bellmanford.py](src/bellmanford.py.py)                                              |
-| Floyd Warshall                                          | [floyd_warshall.py](src/floyd_warshall.py.py)                                        |
+| Floyd Warshall                                          | [floyd_warshall.py](src/floyd_warshall.py)                                           |
 
 ### Test
 
