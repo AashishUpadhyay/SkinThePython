@@ -26,6 +26,7 @@ A repository containing solutions for complex computer science problems using Py
 | Traveling Salesman Problem                              | [tsp.py](src/tsp.py)                                                                 |
 | Bellman Ford                                            | [bellmanford.py](src/bellmanford.py)                                                 |
 | Floyd Warshall                                          | [floyd_warshall.py](src/floyd_warshall.py)                                           |
+| Knapsack                                                | [knapsack.py](src/knapsack.py)                                                       |
 
 ### Test
 
