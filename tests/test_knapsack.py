@@ -62,4 +62,4 @@ def test11():
 
 def test12():
     ks = Knapsack()
-    assert True == ks.can_partition_dp([2, 2, 1, 1])
+    assert True == ks.can_partition([2, 2, 1, 1])
