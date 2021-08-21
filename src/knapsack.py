@@ -64,5 +64,5 @@ class Knapsack:
                 elif num > j:
                     dp[i][j] = dp[i-1][j]
                 else:
-                    dp[i][j] = dp[i-1][j-num]
+                    dp[i][j] = dp[i-1][j] | dp[i-1][j-num]
         return dp[len(nums)-1][width]
