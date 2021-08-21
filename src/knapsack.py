@@ -45,3 +45,24 @@ class Knapsack:
 
         self.memo[index][running_sum] = result
         return result
+
+    def can_partition_dp(self, nums):
+        total_sum = 0
+        for num in nums:
+            total_sum += num
+
+        if (total_sum & 1) == 1:
+            return False
+
+        width = total_sum//2
+        dp = [[False for _ in range(width+1)] for _ in range(len(nums))]
+
+        for i, num in enumerate(nums):
+            for j in range(1, width+1):
+                if num == j:
+                    dp[i][j] = True
+                elif num > j:
+                    dp[i][j] = dp[i-1][j]
+                else:
+                    dp[i][j] = dp[i-1][j-num]
+        return dp[len(nums)-1][width]
