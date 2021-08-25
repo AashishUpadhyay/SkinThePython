@@ -120,5 +120,24 @@ class SetCover:
 
             self.dfs_greedy_method(req_skill + 1, req_skills_index_map, people_skills_map, skill_people_map, new_skillset, new_peopleset, people_count+1)
 
+    def find_smallest_team_dp(self, req_skills, people):
+        M = len(req_skills)
+        req_skills_index_map = {rs:i for i, rs in enumerate(req_skills)}
+        
+        row_length = len(people)
+        col_length = pow(2, M)
 
+        dp = [[-1 for _ in range(col_length)] for _ in range(row_length)]
 
+        for i, peep_skills in enumerate(people):
+            for j in range(1, pow(2, M)):
+                has_skill = False
+                rem_skills = j
+                for psk in peep_skills:
+                    if (1<<req_skills_index_map[psk]) > j:
+                        rem_skills -=  (1<<req_skills_index_map[psk])
+                        has_skill = True
+
+                dp[i][j] = (1<<i) if has_skill else 0 | dp[i-1][rem_skills]
+
+        return self.convert_to_indices(dp[row_length-1][col_length-1], row_length)
