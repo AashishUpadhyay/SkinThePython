@@ -3,12 +3,13 @@ class SetCover:
         pass
 
     def find_smallest_team(self, req_skills, people):
+        # O(2^N) where N is len of people
         req_skills_index_map = {rs:i for i, rs in enumerate(req_skills)}
         
         peopleSkillsMap = []
-        ignore_indices = set()
+        ignore_peep_indices = set()
         for i, i_skills in enumerate(people): 
-            if len(i_skills) == 0 or i in ignore_indices:
+            if len(i_skills) == 0 or i in ignore_peep_indices:
                 continue
             i_skill_set = set(i_skills)
             for j, j_skills in enumerate(people):
@@ -16,7 +17,7 @@ class SetCover:
                     continue
                 j_skill_set = set(j_skills)
                 if j_skill_set.issubset(i_skill_set):
-                    ignore_indices.add(j)
+                    ignore_peep_indices.add(j)
                     
             sk = 0
             for i_skill in i_skills:
@@ -57,10 +58,67 @@ class SetCover:
                 
         self.memo[peopleset] = None        
     
-    def convert_to_indices(self, peopleset, M):   
+    def convert_to_indices(self, peopleset, M):
         result = []
 
         for i in range(M):
             if (1<<i) & peopleset:
                 result.append(i)
         return result
+
+    def find_smallest_team_greedy_method(self, req_skills, people):
+        # O(2^N) where M is len of req_skills
+        req_skills_index_map = {rs:i for i, rs in enumerate(req_skills)}
+        people_skills_map = {}
+        skill_people_map = {}
+        ignore_peep_indices = set()
+        for i, i_skills in enumerate(people): 
+            if len(i_skills) == 0 or i in ignore_peep_indices:
+                continue
+            i_skill_set = set(i_skills)
+            for j, j_skills in enumerate(people):
+                if i == j:
+                    continue
+                j_skill_set = set(j_skills)
+                if j_skill_set.issubset(i_skill_set):
+                    ignore_peep_indices.add(j)
+                    
+            sk = 0
+            for i_skill in i_skills:
+                sk |= 1<<req_skills_index_map[i_skill]
+                if i_skill not in skill_people_map:
+                    skill_people_map[req_skills_index_map[i_skill]] = []
+                skill_people_map[req_skills_index_map[i_skill]].append(i)
+            people_skills_map[i] = sk
+
+        self.teamSize = len(people)
+        self.M = len(req_skills)
+        self.rv = None
+
+        self.dfs_greedy_method(0, req_skills_index_map, people_skills_map, skill_people_map, 0, 0, 0)
+        return self.convert_to_indices(self.rv, len(people))
+
+    def dfs_greedy_method(self, req_skill, req_skills_index_map, people_skills_map, skill_people_map, skillset, peopleset, people_count):
+
+        if skillset == (pow(2, self.M) - 1) and self.teamSize > people_count:
+            self.teamSize = people_count
+            self.rv = peopleset
+            return
+
+        if people_count > self.teamSize or req_skill > (self.M - 1):
+            return    
+
+        if skillset & (1<<req_skill):
+            self.dfs_greedy_method(req_skill + 1, req_skills_index_map, people_skills_map, skill_people_map, skillset, peopleset, people_count)      
+
+        for peep in skill_people_map[req_skill]:
+            if (1<<peep) & peopleset:
+                continue
+
+            new_skillset = skillset | people_skills_map[peep]
+            new_peopleset = peopleset | (1<<peep)
+
+            self.dfs_greedy_method(req_skill + 1, req_skills_index_map, people_skills_map, skill_people_map, new_skillset, new_peopleset, people_count+1)
+
+
+

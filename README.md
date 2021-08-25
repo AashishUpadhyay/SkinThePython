@@ -24,6 +24,7 @@ A repository containing solutions for complex computer science problems using Py
 | Fisher Yates | [fisheryates.py](src/fisheryates.py)                   |
 | Kruskals Algorithm using Disjoint Set | [kruskalsalgorithm.py](src/kruskalsalgorithm.py)                   |
 | Traveling Salesman Problem | [tsp.py](src/tsp.py)                   |
+| Set Cover | [tsp.py](src/setcover.py)                   |
 
 
 
