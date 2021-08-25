@@ -27,7 +27,7 @@ A repository containing solutions for complex computer science problems using Py
 | Bellman Ford                                            | [bellmanford.py](src/bellmanford.py)                                                 |
 | Floyd Warshall                                          | [floyd_warshall.py](src/floyd_warshall.py)                                           |
 | Knapsack                                                | [knapsack.py](src/knapsack.py)                                                       |
-| Set Cover                                               | [tsp.py](src/setcover.py)                                                            |
+| Set Cover                                               | [setcover.py](src/setcover.py)                                                            |
 
 ### Test
 
