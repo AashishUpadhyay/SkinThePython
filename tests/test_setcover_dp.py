@@ -3,9 +3,11 @@ from src.setcover import SetCover
 def assert_test(req_skills, people):
     print("people arr length = " + str(len(people)))
     sc = SetCover()
-    received = sc.find_smallest_team_dp(req_skills, people)
+    received_dp = sc.find_smallest_team_dp(req_skills, people)
+    received = sc.find_smallest_team(req_skills, people)
+    assert len(received_dp) == len(received)
     req_skills_set = set(req_skills)
-    for ri in received:
+    for ri in received_dp:
         for sk in people[ri]:
             if sk in req_skills_set:
                 req_skills_set.remove(sk)
@@ -34,7 +36,48 @@ def test4():
 
 def test5():
     req_skills = ["mwobudvo","goczubcwnfze","yspbsez","pf","ey","hkq"]
-    people =[[],["mwobudvo"],["hkq"],["pf"],["pf"],["mwobudvo","pf"],[],["yspbsez"],[],["hkq"],[],[],["goczubcwnfze","pf","hkq"],["goczubcwnfze"],["hkq"],["mwobudvo"],[],["mwobudvo","pf"],["pf","ey"],["mwobudvo"],["hkq"],[],["pf"],["mwobudvo","yspbsez"],["mwobudvo","goczubcwnfze"],["goczubcwnfze","pf"],["goczubcwnfze"],["goczubcwnfze"],["mwobudvo"],["mwobudvo","goczubcwnfze"],[],["goczubcwnfze"],[],["goczubcwnfze"],["mwobudvo"],[],["hkq"],["yspbsez"],["mwobudvo"],["goczubcwnfze","ey"]]
+    people =[
+    [],
+    ["mwobudvo"],
+    ["hkq"],
+    ["pf"],
+    ["pf"],
+    ["mwobudvo","pf"],
+    [],
+    ["yspbsez"],
+    [],
+    ["hkq"],
+    [],
+    [],
+    ["goczubcwnfze","pf","hkq"], #12
+    ["goczubcwnfze"],
+    ["hkq"],
+    ["mwobudvo"],
+    [],
+    ["mwobudvo","pf"],
+    ["pf","ey"], #18
+    ["mwobudvo"],
+    ["hkq"],
+    [],
+    ["pf"],
+    ["mwobudvo","yspbsez"], #23
+    ["mwobudvo","goczubcwnfze"], #24
+    ["goczubcwnfze","pf"],
+    ["goczubcwnfze"],
+    ["goczubcwnfze"],
+    ["mwobudvo"],
+    ["mwobudvo","goczubcwnfze"],
+    [],
+    ["goczubcwnfze"],
+    [],
+    ["goczubcwnfze"],
+    ["mwobudvo"],
+    [],
+    ["hkq"],
+    ["yspbsez"],
+    ["mwobudvo"],
+    ["goczubcwnfze","ey"] #39
+    ]
     assert_test(req_skills, people)  
 
 def test6():
@@ -70,4 +113,19 @@ def test11():
 def test12():
     req_skills =["hfkbcrslcdjq","jmhobexvmmlyyzk","fjubadocdwaygs","peaqbonzgl","brgjopmm","x","mf","pcfpppaxsxtpixd","ccwfthnjt","xtadkauiqwravo","zezdb","a","rahimgtlopffbwdg","ulqocaijhezwfr","zshbwqdhx","hyxnrujrqykzhizm"]
     people =[["peaqbonzgl","xtadkauiqwravo"],["peaqbonzgl","pcfpppaxsxtpixd","zshbwqdhx"],["x","a"],["a"],["jmhobexvmmlyyzk","fjubadocdwaygs","xtadkauiqwravo","zshbwqdhx"],["fjubadocdwaygs","x","zshbwqdhx"],["x","xtadkauiqwravo"],["x","hyxnrujrqykzhizm"],["peaqbonzgl","x","pcfpppaxsxtpixd","a"],["peaqbonzgl","pcfpppaxsxtpixd"],["a"],["hyxnrujrqykzhizm"],["jmhobexvmmlyyzk"],["hfkbcrslcdjq","xtadkauiqwravo","a","zshbwqdhx"],["peaqbonzgl","mf","a","rahimgtlopffbwdg","zshbwqdhx"],["xtadkauiqwravo"],["fjubadocdwaygs"],["x","a","ulqocaijhezwfr","zshbwqdhx"],["peaqbonzgl"],["pcfpppaxsxtpixd","ulqocaijhezwfr","hyxnrujrqykzhizm"],["a","ulqocaijhezwfr","hyxnrujrqykzhizm"],["a","rahimgtlopffbwdg"],["zshbwqdhx"],["fjubadocdwaygs","peaqbonzgl","brgjopmm","x"],["hyxnrujrqykzhizm"],["jmhobexvmmlyyzk","a","ulqocaijhezwfr"],["peaqbonzgl","x","a","ulqocaijhezwfr","zshbwqdhx"],["mf","pcfpppaxsxtpixd"],["fjubadocdwaygs","ulqocaijhezwfr"],["fjubadocdwaygs","x","a"],["zezdb","hyxnrujrqykzhizm"],["ccwfthnjt","a"],["fjubadocdwaygs","zezdb","a"],[],["peaqbonzgl","ccwfthnjt","hyxnrujrqykzhizm"],["xtadkauiqwravo","hyxnrujrqykzhizm"],["peaqbonzgl","a"],["x","a","hyxnrujrqykzhizm"],["zshbwqdhx"],[],["fjubadocdwaygs","mf","pcfpppaxsxtpixd","zshbwqdhx"],["pcfpppaxsxtpixd","a","zshbwqdhx"],["peaqbonzgl"],["peaqbonzgl","x","ulqocaijhezwfr"],["ulqocaijhezwfr"],["x"],["fjubadocdwaygs","peaqbonzgl"],["fjubadocdwaygs","xtadkauiqwravo"],["pcfpppaxsxtpixd","zshbwqdhx"],["peaqbonzgl","brgjopmm","pcfpppaxsxtpixd","a"],["fjubadocdwaygs","x","mf","ulqocaijhezwfr"],["jmhobexvmmlyyzk","brgjopmm","rahimgtlopffbwdg","hyxnrujrqykzhizm"],["x","ccwfthnjt","hyxnrujrqykzhizm"],["hyxnrujrqykzhizm"],["peaqbonzgl","x","xtadkauiqwravo","ulqocaijhezwfr","hyxnrujrqykzhizm"],["brgjopmm","ulqocaijhezwfr","zshbwqdhx"],["peaqbonzgl","pcfpppaxsxtpixd"],["fjubadocdwaygs","x","a","zshbwqdhx"],["fjubadocdwaygs","peaqbonzgl","x"],["ccwfthnjt"]]
+    assert_test(req_skills, people)
+
+def test13():
+    req_skills = ["algorithms","math","java"]
+    people = [
+        ["algorithms","math","java"],
+        ["math"],
+        ["java"],
+        ["algorithms"]
+        ]
+    assert_test(req_skills, people)
+
+def test14():
+    req_skills = ["zp","jpphhnhwpw","pscleb","arn","acrsxqvus","fseqih","fpqbjbbxglivyonn","cjozlkyodt","mvtwffgkhjrtibto","kumdvfwsvrht","i","s","ucr","oo","yqkqkhhhwngyjrg","odiwidzqw"]
+    people = [["acrsxqvus"],["zp"],[],["fpqbjbbxglivyonn"],[],[],["kumdvfwsvrht"],[],["oo"],[],["fseqih"],[],["arn"],[],[],["yqkqkhhhwngyjrg"],[],[],[],["kumdvfwsvrht"],["s"],[],[],["zp","ucr"],[],["pscleb"],[],[],[],[],[],[],[],["jpphhnhwpw"],[],[],[],["oo"],[],["i"],["pscleb"],[],[],[],[],[],[],["i"],[],["mvtwffgkhjrtibto","odiwidzqw"],[],["cjozlkyodt","odiwidzqw"],["arn"],[],[],["acrsxqvus"],[],[],[],["ucr"]]
     assert_test(req_skills, people)
