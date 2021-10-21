@@ -6,7 +6,7 @@ class FenwickTree:
         tree = [0 for _ in range(len(arr))]
         for i, v in enumerate(arr):
             self.update(i, v, tree)    
-        return self.tree    
+        return tree    
 
     def query(self, count, tree):
         result = 0
