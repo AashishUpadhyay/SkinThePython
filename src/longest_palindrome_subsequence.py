@@ -6,7 +6,7 @@ class LongestPalindromeSubsequence:
         N = len(s)
 
         dp = [[1 if aj == ai else 0 for aj in range(N)] for ai in range(N)]
-        rv = 0
+        rv = 1
         for l in range(2, N+1):
             for i in range(0, N):
                 si = i
