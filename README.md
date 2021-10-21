@@ -28,6 +28,7 @@ A repository containing solutions for complex computer science problems using Py
 | Floyd Warshall                                          | [floyd_warshall.py](src/floyd_warshall.py)                                           |
 | Knapsack                                                | [knapsack.py](src/knapsack.py)                                                       |
 | Set Cover                                               | [setcover.py](src/setcover.py)                                                            |
+| Fenwick Tree Application                                               | [count_smaller_than_self.py](src/count_smaller_than_self.py)  
 
 ### Test
 
