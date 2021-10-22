@@ -48,6 +48,28 @@ class LongestCommonSubsequence:
                                 dp[i][1].append(l_sub_str)
         return result
 
+    def optimized_find(self, text1, text2):
+        M = len(text1)
+        N = len(text2)
+
+        dp = [[0 for _ in range(N)] for _ in range(M)]
+
+        result = 0
+        for i in range(M):
+            for j in range(N):
+
+                if j == 0:
+                    diagonal_val = 0
+                else:
+                    diagonal_val = dp[i-1][j-1]    
+                
+                if text1[i] == text2[j]:
+                    dp[i][j] = diagonal_val + 1
+                else:
+                    dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+                result = max(dp[i][j], result)
+        return result
+
         
     def is_sub(self, s, t, t_char_ind_map):
         lmi = -1

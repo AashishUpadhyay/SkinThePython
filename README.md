@@ -28,7 +28,8 @@ A repository containing solutions for complex computer science problems using Py
 | Floyd Warshall                                          | [floyd_warshall.py](src/floyd_warshall.py)                                           |
 | Knapsack                                                | [knapsack.py](src/knapsack.py)                                                       |
 | Set Cover                                               | [setcover.py](src/setcover.py)                                                            |
-
+| Longest Common Subsequence                                               | [longest_common_subsequence](src/longest_common_subsequence)  
+| Longest Palindrome Subsequence                                               | [longest_common_subsequence](src/longest_palindrome_subsequence)  
 ### Test
 
 ```
