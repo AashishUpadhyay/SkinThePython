@@ -30,6 +30,8 @@ A repository containing solutions for complex computer science problems using Py
 | Set Cover                                               | [setcover.py](src/setcover.py)                                                            |
 | Longest Common Subsequence                                               | [longest_common_subsequence.py](src/longest_common_subsequence.py)  
 | Longest Palindrome Subsequence                                               | [longest_palindrome_subsequence.py](src/longest_palindrome_subsequence.py)  
+| Fenwick Tree Application                                               | [count_smaller_than_self.py](src/count_smaller_than_self.py)  
+
 ### Test
 
 ```

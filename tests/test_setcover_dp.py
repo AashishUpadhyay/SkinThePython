@@ -3,15 +3,16 @@ from src.setcover import SetCover
 def assert_test(req_skills, people):
     print("people arr length = " + str(len(people)))
     sc = SetCover()
+    received_dp = sc.find_smallest_team_dp(req_skills, people)
     received = sc.find_smallest_team(req_skills, people)
+    assert len(received_dp) == len(received)
     req_skills_set = set(req_skills)
-    for ri in received:
+    for ri in received_dp:
         for sk in people[ri]:
             if sk in req_skills_set:
                 req_skills_set.remove(sk)
     
     assert len(req_skills_set) == 0
-
 
 def test1():
     req_skills = ["java","nodejs","reactjs"]
