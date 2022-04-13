@@ -7,4 +7,3 @@ def test1():
     rm.addRange(9, 11)
     rm.addRange(15, 20)
     rm.addRange(1, 16)
-    print(rm.track)

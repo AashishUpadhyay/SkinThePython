@@ -1,7 +1,6 @@
 from src.setcover import SetCover
 
 def assert_test(req_skills, people):
-    print("people arr length = " + str(len(people)))
     sc = SetCover()
     received_dp = sc.find_smallest_team_dp(req_skills, people)
     received = sc.find_smallest_team(req_skills, people)
