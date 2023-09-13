@@ -2,7 +2,6 @@ import bisect
 
 
 class RangeModule:
-
     def __init__(self):
         self.track = []
 

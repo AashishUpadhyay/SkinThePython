@@ -1,5 +1,6 @@
 from src.datastructures.disjointset import DisjoinSet
 
+
 def test1():
     djs = DisjoinSet()
     djs.union(1, 2)

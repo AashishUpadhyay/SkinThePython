@@ -7,11 +7,11 @@ class BinarySearch:
         ei = len(nums) - 1
 
         while si <= ei:
-            mid = si + (ei-si)//2
+            mid = si + (ei - si) // 2
             if nums[mid] == target:
                 return mid
             elif nums[mid] < target:
-                si = mid+1
+                si = mid + 1
             else:
-                ei = mid-1
+                ei = mid - 1
         return -1

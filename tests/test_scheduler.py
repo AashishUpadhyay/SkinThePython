@@ -15,5 +15,5 @@ def test2():
 
 def test3():
     sc = Scheduler()
-    input = [[1, 2], [.5, 2.5], [1.75, 2.5]]
+    input = [[1, 2], [0.5, 2.5], [1.75, 2.5]]
     assert 3 == sc.number_of_docks(input)

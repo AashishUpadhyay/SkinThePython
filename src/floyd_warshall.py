@@ -3,9 +3,8 @@ class FLoydWarshall:
         pass
 
     def build_all_pair_shortest_path(self, graph):
-
         dp = [[10000 for _ in range(len(graph))] for _ in range(len(graph))]
-        path = [['N' for _ in range(len(graph))] for _ in range(len(graph))]
+        path = [["N" for _ in range(len(graph))] for _ in range(len(graph))]
 
         for ri, row in enumerate(graph):
             dp[ri][ri] = 0

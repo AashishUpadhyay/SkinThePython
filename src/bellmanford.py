@@ -8,13 +8,10 @@ class BellmanFord:
         result = [100000] * len(graph)
         result[start] = 0
 
-        for _ in range(len(graph)-1):
+        for _ in range(len(graph) - 1):
             for ri, row in enumerate(graph):
                 for col in row:
                     if result[col[0]] > result[ri] + col[1]:
                         result[col[0]] = result[ri] + col[1]
 
-        return result    
-
-
-        
+        return result

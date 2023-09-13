@@ -7,7 +7,6 @@ class Count4:
         self.moves = ["R", "B"]
 
     def play(self):
-
         moveIndex = 0
         while True:
             self.printBoard()
@@ -34,7 +33,6 @@ class Count4:
         return [ri, ci]
 
     def gameOver(self, loc, move):
-
         if (
             self.horCnt(loc, move) == 4
             or self.verCnt(loc, move) == 4
@@ -43,7 +41,6 @@ class Count4:
             return True
 
     def horCnt(self, loc, move):
-
         ri = loc[0]
         ci = loc[1]
 
@@ -67,7 +64,6 @@ class Count4:
         return cnt
 
     def verCnt(self, loc, move):
-
         ri = loc[0]
         ci = loc[1]
 
@@ -91,7 +87,6 @@ class Count4:
         return cnt
 
     def diaCnt(self, loc, move):
-
         ri = loc[0]
         ci = loc[1]
 

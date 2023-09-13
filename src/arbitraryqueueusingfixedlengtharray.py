@@ -21,7 +21,6 @@ class ArbitraryQueueUsingFixedLengthArray:
         return 1
 
     def dequeue(self):
-
         if self._size == 0:
             return -1
 

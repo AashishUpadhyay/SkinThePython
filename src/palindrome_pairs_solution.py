@@ -6,38 +6,38 @@ class PalindromePairsSolution:
         root = TrieNode()
         wd_idxs = {}
         for wd_idx, wd in enumerate(words):
-            rev_wd = ''.join(reversed(wd))
+            rev_wd = "".join(reversed(wd))
             root.insert(rev_wd, wd_idx)
             wd_idxs[wd] = wd_idx
 
         result = []
         for wd_idx, wd in enumerate(words):
-            if wd == '':
+            if wd == "":
                 continue
             trieNode = root
             for ci, c in enumerate(wd):
                 rem_wd = wd[ci:]
-                if PalindromeUtility.is_palindrome(rem_wd) and '#' in trieNode.trie:
+                if PalindromeUtility.is_palindrome(rem_wd) and "#" in trieNode.trie:
                     # case 1: word could possibly continue and remaining word is a palindrome
-                    result.append([wd_idx, trieNode.trie['#'].ei])
+                    result.append([wd_idx, trieNode.trie["#"].ei])
 
                 if c not in trieNode.trie:
                     break
 
-                if ci == len(wd)-1 and '#' in trieNode.trie[c].trie:
+                if ci == len(wd) - 1 and "#" in trieNode.trie[c].trie:
                     # case 2: word ends trie ends
-                    if trieNode.trie[c].trie['#'].ei != wd_idx:
-                        result.append([wd_idx, trieNode.trie[c].trie['#'].ei])
+                    if trieNode.trie[c].trie["#"].ei != wd_idx:
+                        result.append([wd_idx, trieNode.trie[c].trie["#"].ei])
 
                 trieNode = trieNode.trie[c]
 
-                if ci == len(wd)-1:
+                if ci == len(wd) - 1:
                     # case 3: word ends and trie continues
                     for pi in trieNode.pali_idxs:
                         result.append([wd_idx, pi])
 
-            if PalindromeUtility.is_palindrome(wd) and '' in wd_idxs:
-                result.append([wd_idxs[''], wd_idx])
+            if PalindromeUtility.is_palindrome(wd) and "" in wd_idxs:
+                result.append([wd_idxs[""], wd_idx])
 
         return result
 
@@ -48,7 +48,7 @@ class PalindromeUtility:
 
     @classmethod
     def is_palindrome(cls, wd):
-        rev_wd = ''.join(reversed(wd))
+        rev_wd = "".join(reversed(wd))
         return rev_wd == wd
 
 
@@ -64,9 +64,9 @@ class TrieNode:
             if c not in trieNode.trie:
                 trieNode.trie[c] = TrieNode()
 
-            rm_wd = wd[i+1:]
+            rm_wd = wd[i + 1 :]
             if len(rm_wd) > 0 and PalindromeUtility.is_palindrome(rm_wd):
                 trieNode.trie[c].pali_idxs.append(idx)
             trieNode = trieNode.trie[c]
-        trieNode.trie['#'] = TrieNode()
-        trieNode.trie['#'].ei = idx
+        trieNode.trie["#"] = TrieNode()
+        trieNode.trie["#"].ei = idx

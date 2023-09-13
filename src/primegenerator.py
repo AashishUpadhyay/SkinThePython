@@ -27,7 +27,7 @@ class PrimeGenerator:
                     popped = heapq.heappop(composite)
                     heapq.heappush(composite, (i + popped[1], popped[1]))
             else:
-                heapq.heappush(composite, (i ** 2, i))
+                heapq.heappush(composite, (i**2, i))
                 yield i
 
             i += 1

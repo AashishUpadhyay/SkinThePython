@@ -23,21 +23,21 @@ class MinMovesToSpreadStones:
                     zero_cells.append((i, j))
 
                 if grid[i][j] > 1:
-                    for _ in range(grid[i][j]-1):
+                    for _ in range(grid[i][j] - 1):
                         cells_with_extra_stones.append((i, j))
 
         cell_id_permutations = self._make_permutations(
-            [cood_cell_id_map[cell] for cell in zero_cells], [cood_cell_id_map[cell] for cell in cells_with_extra_stones])
+            [cood_cell_id_map[cell] for cell in zero_cells],
+            [cood_cell_id_map[cell] for cell in cells_with_extra_stones],
+        )
 
-        rv = float('inf')
+        rv = float("inf")
         for permuation in cell_id_permutations:
             cost = 0
             for item in permuation:
-                sx, sy = cell_id_cood_map[item[0]
-                                          ][0], cell_id_cood_map[item[0]][1]
-                ex, ey = cell_id_cood_map[item[1]
-                                          ][0], cell_id_cood_map[item[1]][1]
-                cost += abs(ex-sx) + abs(ey-sy)
+                sx, sy = cell_id_cood_map[item[0]][0], cell_id_cood_map[item[0]][1]
+                ex, ey = cell_id_cood_map[item[1]][0], cell_id_cood_map[item[1]][1]
+                cost += abs(ex - sx) + abs(ey - sy)
             rv = min(rv, cost)
         return rv
 

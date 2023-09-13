@@ -8,7 +8,6 @@ class Permutations:
         return self._perms
 
     def _generatePermutationsInternal(self, arr, perm, seen):
-
         if len(arr) == len(seen):
             self._perms.append(perm)
 
