@@ -1,5 +1,6 @@
 from src.decodestring import DecodeString
 
+
 def test1():
     ds = DecodeString()
     assert ds.top_down("1") == 1
@@ -17,6 +18,7 @@ def test1():
     assert ds.top_down("1757") == 2
     assert ds.top_down("00") == 0
     assert ds.top_down("10") == 1
+
 
 def test2():
     ds = DecodeString()

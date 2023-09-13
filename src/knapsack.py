@@ -13,13 +13,13 @@ class Knapsack:
         self.memo = {}
         for i in range(len(nums)):
             index_set = set()
-            if self.dfs(total_sum//2, i, 0, index_set, nums):
+            if self.dfs(total_sum // 2, i, 0, index_set, nums):
                 return True
 
         return False
 
     def dfs(self, match_condition, index, running_sum, index_set, nums):
-        if len(index_set) > len(nums)-1:
+        if len(index_set) > len(nums) - 1:
             return False
 
         if running_sum == match_condition:
@@ -37,8 +37,7 @@ class Knapsack:
                 continue
 
             index_set.add(i)
-            result = self.dfs(
-                match_condition, i, running_sum + num, index_set, nums)
+            result = self.dfs(match_condition, i, running_sum + num, index_set, nums)
             index_set.remove(i)
             if result:
                 break
@@ -54,15 +53,15 @@ class Knapsack:
         if (total_sum & 1) == 1:
             return False
 
-        width = total_sum//2
-        dp = [[False for _ in range(width+1)] for _ in range(len(nums))]
+        width = total_sum // 2
+        dp = [[False for _ in range(width + 1)] for _ in range(len(nums))]
 
         for i, num in enumerate(nums):
-            for j in range(1, width+1):
+            for j in range(1, width + 1):
                 if num == j:
                     dp[i][j] = True
                 elif num > j:
-                    dp[i][j] = dp[i-1][j]
+                    dp[i][j] = dp[i - 1][j]
                 else:
-                    dp[i][j] = dp[i-1][j] | dp[i-1][j-num]
-        return dp[len(nums)-1][width]
+                    dp[i][j] = dp[i - 1][j] | dp[i - 1][j - num]
+        return dp[len(nums) - 1][width]

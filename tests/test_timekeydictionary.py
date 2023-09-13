@@ -1,4 +1,4 @@
-from src.timekeydictionary import *
+from src.timekeydictionary import TimeKeyDictionary
 
 
 def test1():

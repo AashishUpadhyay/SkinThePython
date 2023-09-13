@@ -11,7 +11,6 @@ def calculate_hash(hs, nc, oc, l):
 
 
 def find_matches_rabinkarp(str, substr):
-
     substr_len = len(substr)
     substr_hash = build_hash(substr)
 
@@ -38,7 +37,6 @@ def find_matches_rabinkarp(str, substr):
 
 
 def find_matches(str, substr):
-
     si = 0
     ei = len(substr)
     result = []

@@ -9,7 +9,7 @@ class LongestCommonSubsequence:
         else:
             ss = text2
             ls = text1
-        
+
         ls_map = self.t_map(ls)
         dp = {}
         result = 0
@@ -17,13 +17,12 @@ class LongestCommonSubsequence:
             if i not in dp:
                 dp[i] = []
             if self.is_sub(c, ls, ls_map):
-                dp[i] = [1,[c]]
+                dp[i] = [1, [c]]
                 result = 1
             else:
-                dp[i] = [0,[]]
+                dp[i] = [0, []]
         for i in range(len(ss)):
             for j in range(0, i):
-
                 sub_str = ss[j] + ss[i]
                 if self.is_sub(sub_str, ls, ls_map):
                     l_sub_str = sub_str
@@ -57,20 +56,18 @@ class LongestCommonSubsequence:
         result = 0
         for i in range(M):
             for j in range(N):
-
                 if j == 0:
                     diagonal_val = 0
                 else:
-                    diagonal_val = dp[i-1][j-1]    
-                
+                    diagonal_val = dp[i - 1][j - 1]
+
                 if text1[i] == text2[j]:
                     dp[i][j] = diagonal_val + 1
                 else:
-                    dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
                 result = max(dp[i][j], result)
         return result
 
-        
     def is_sub(self, s, t, t_char_ind_map):
         lmi = -1
         cnt = 0
@@ -79,13 +76,13 @@ class LongestCommonSubsequence:
                 return False
             indices = sorted(t_char_ind_map[sc])
             for ind in indices:
-                if ind < lmi+1:
+                if ind < lmi + 1:
                     continue
                 if sc == t[ind]:
                     lmi = ind
                     cnt += 1
                     break
-        return len(s) == cnt    
+        return len(s) == cnt
 
     def t_map(self, t):
         t_char_ind_map = {}

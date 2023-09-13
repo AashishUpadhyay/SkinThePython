@@ -9,12 +9,10 @@ class Quack:
         self._left.append(item)
 
     def pop(self):
-
         if not self._left and not self._right:
             return -1
 
         if not self._left:
-
             rt_len = len(self._right)
 
             for _ in range(rt_len // 2):
@@ -33,7 +31,6 @@ class Quack:
             return -1
 
         if not self._right:
-
             lf_len = len(self._left)
 
             for _ in range(lf_len // 2):

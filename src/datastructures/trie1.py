@@ -1,5 +1,4 @@
 class Trie:
-
     def __init__(self):
         self.children = {}
         self.data = None
@@ -11,8 +10,8 @@ class Trie:
                 trie.children[c] = Trie()
             trie = trie.children[c]
 
-        if '#' not in trie.children:
-            trie.children['#'] = None
+        if "#" not in trie.children:
+            trie.children["#"] = None
 
         trie.data = word
 
@@ -35,10 +34,9 @@ class Trie:
         return trie
 
     def dfs(self, node):
-
         result = []
         if node:
-            if '#' in node.children:
+            if "#" in node.children:
                 result.append(node.data)
 
             for k in node.children.keys():

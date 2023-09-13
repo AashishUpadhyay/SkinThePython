@@ -3,7 +3,7 @@ class QuickSort:
         pass
 
     def sort(self, nums):
-        self.sort_internal(nums, 0, len(nums)-1)
+        self.sort_internal(nums, 0, len(nums) - 1)
         return nums
 
     def sort_internal(self, nums, si, ei):
@@ -23,5 +23,5 @@ class QuickSort:
         if nums[i] > nums[j]:
             nums[i], nums[j] = nums[j], nums[i]
 
-        self.sort_internal(nums, si, i-1)
-        self.sort_internal(nums, i+1, ei)
+        self.sort_internal(nums, si, i - 1)
+        self.sort_internal(nums, i + 1, ei)

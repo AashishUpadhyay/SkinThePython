@@ -49,7 +49,6 @@ class AlienDictionary:
         return revgraph
 
     def findOrder(self):
-
         source = [k for k, v in self._graph.items() if len(v) == 0]
         target = []
 

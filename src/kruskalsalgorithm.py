@@ -1,4 +1,6 @@
 from src.datastructures.disjointset import DisjoinSet
+
+
 class KruskalsAlgorithm:
     def __init__(self) -> None:
         pass
@@ -11,9 +13,9 @@ class KruskalsAlgorithm:
         for conn in connections_sorted:
             if djs.union(conn[0], conn[1]):
                 cost += conn[2]
-                total+=1
+                total += 1
 
-        if total == n-1:        
+        if total == n - 1:
             return cost
 
         return -1

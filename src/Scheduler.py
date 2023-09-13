@@ -26,7 +26,6 @@ class Scheduler:
         pass
 
     def number_of_docks(self, vans):
-
         if len(vans) == 0:
             return 0
 

@@ -10,13 +10,11 @@ class Solution:
         self._col = len(arr[0])
 
     def Solve8by8(self):
-
         if self._arr == self._endstate:
             return 0
 
         for i in range(len(self._arr)):
             for j in range(len(self._arr[i])):
-
                 if self._arr[i][j] > 0:
                     continue
 
@@ -33,7 +31,6 @@ class Solution:
         heapq.heappush(heap, (self.distance(newarr), [newarr, [i, j], 0]))
 
         while heap:
-
             dqedItem = heapq.heappop(heap)
 
             dqed = dqedItem[1]
@@ -119,7 +116,6 @@ class Solution:
         return None
 
     def move(self, i, j):
-
         if i < 0 or j < 0 or i > self._row - 1 or j > self._col - 1:
             return False
 
