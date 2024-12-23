@@ -1,5 +1,4 @@
 from src.count4 import Count4
-import pprint
 
 
 def test1():

@@ -1,4 +1,3 @@
-from typing import Collection
 from src.datastructures.fenwicktree import FenwickTree
 
 

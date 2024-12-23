@@ -1,6 +1,5 @@
 from src.hierholzersalgorithm import (
     debrujin_sequence,
-    _build_vertices,
     _build_debrujin_sequence,
     _build_graph,
     _build_vertices,
