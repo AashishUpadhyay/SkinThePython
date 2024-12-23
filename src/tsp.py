@@ -1,5 +1,3 @@
-from sys import path
-import copy
 
 
 class TravelingSalesmanProblem:

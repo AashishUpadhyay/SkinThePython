@@ -1,4 +1,3 @@
-import pprint
 import unittest
 from src.minmovestospreadstones import MinMovesToSpreadStones
 

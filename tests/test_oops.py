@@ -1,4 +1,4 @@
-from src.oops import Animal, Gorilla, Lion
+from src.oops import Gorilla, Lion
 
 
 def test_gorilla_walk():
