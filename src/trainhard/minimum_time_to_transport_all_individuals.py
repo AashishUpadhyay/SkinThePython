@@ -49,61 +49,57 @@
 
 
 from typing import List, Dict, Set
-from collections import defaultdict
 from functools import cache
-from itertools import combinations
+import itertools
+import math
 
 
 class Solution:
     def minTime(self, n: int, k: int, m: int, time: List[int], mul: List[float]) -> float:
-        if k == 1 and n > 1:  # If boat can only carry 1 person, impossible for n > 1
+        if k == 1 and n > 1:
             return -1
 
         @cache
-        def dp(people_at_dest: int, stage: int, boat_at_dest: bool) -> float:
-            if people_at_dest == (1 << n) - 1:  # All people at destination
+        def dfs(at_dest, atsource, curr_stage, singles):
+            if at_dest == 0:  # Everyone at source (our target)
                 return 0
+            if singles > 3:  # No optimal solution needs more than 3 single crossings
+                return float('inf')
 
-            if boat_at_dest:  # Boat is at destination, someone needs to return
-                min_time = float('inf')
-                people_at_dest_indices = [
-                    i for i in range(n) if (people_at_dest & (1 << i))]
+            curr_cost = float('inf')
+            if atsource == False:  # At destination, sending people to source
+                idx_at_dest = [idx for idx in range(
+                    n) if ((1 << idx) & at_dest)]
+                for grp_size in range(1, k+1):
+                    for grp in itertools.combinations(idx_at_dest, grp_size):
+                        cost_to_move_grp = max(
+                            [time[grp_item] for grp_item in grp]) * mul[curr_stage]
+                        next_stage = (
+                            curr_stage + (math.floor(cost_to_move_grp))) % m
+                        new_at_dest = at_dest
+                        for grp_item in grp:
+                            # Remove from destination
+                            new_at_dest &= ~(1 << grp_item)
+                        # Increment singles only when sending one person
+                        next_cost = dfs(new_at_dest, True, next_stage,
+                                        singles + (1 if len(grp) == 1 else 0))
+                        if next_cost != float('inf'):
+                            curr_cost = min(
+                                curr_cost, cost_to_move_grp + next_cost)
+            else:  # At source, sending one person back to destination
+                idx_at_src = [idx for idx in range(
+                    n) if not ((1 << idx) & at_dest)]
+                for idx in idx_at_src:  # Can only send one person back
+                    cost_to_return = time[idx] * mul[curr_stage]
+                    next_stage = (
+                        curr_stage + (math.floor(cost_to_return))) % m
+                    next_cost = dfs(at_dest | (1 << idx),
+                                    False, next_stage, singles)
+                    if next_cost != float('inf'):
+                        curr_cost = min(curr_cost, cost_to_return + next_cost)
 
-                # Try each person at destination to return with boat
-                for person in people_at_dest_indices:
-                    return_time = time[person] * mul[stage]
-                    next_stage = (stage + int(return_time)) % m
-                    remaining_time = dp(people_at_dest, next_stage, False)
+            return curr_cost
 
-                    if remaining_time != float('inf'):
-                        min_time = min(min_time, return_time + remaining_time)
-
-                return min_time
-            else:  # Boat is at source, send group to destination
-                min_time = float('inf')
-                people_at_source = [(1 << i) for i in range(
-                    n) if not (people_at_dest & (1 << i))]
-
-                # Try all possible combinations of people to send (up to k people)
-                for group_size in range(1, min(k + 1, len(people_at_source) + 1)):
-                    for group in combinations(people_at_source, group_size):
-                        group_mask = sum(group)  # Combine masks
-                        group_indices = [i for i in range(
-                            n) if (group_mask & (1 << i))]
-
-                        # Calculate crossing time for this group
-                        crossing_time = max(time[i]
-                                            for i in group_indices) * mul[stage]
-                        next_stage = (stage + int(crossing_time)) % m
-                        new_dest = people_at_dest | group_mask
-
-                        remaining_time = dp(new_dest, next_stage, True)
-                        if remaining_time != float('inf'):
-                            min_time = min(
-                                min_time, crossing_time + remaining_time)
-
-                return min_time
-
-        # Start with everyone at source (people_at_dest = 0), stage 0, and boat at source
-        result = dp(0, 0, False)
-        return result if result != float('inf') else -1.0
+        # Start with everyone at destination
+        result = dfs((1 << n) - 1, False, 0, 0)
+        return result if result != float('inf') else -1
